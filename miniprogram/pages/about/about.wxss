@@ -1,0 +1,52 @@
+.about-page {
+  padding-bottom: 48rpx;
+}
+
+.brand-card {
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  background: #fff;
+  box-shadow: 0 10rpx 30rpx rgba(11, 58, 117, 0.06);
+}
+
+.brand-logo {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 22rpx rgba(11, 58, 117, 0.12);
+}
+
+.brand-title {
+  color: #0b3a75;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.brand-subtitle {
+  margin-top: 8rpx;
+  color: #6b7280;
+  font-size: 25rpx;
+}
+
+.section {
+  margin-top: 22rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+  background: #fff;
+}
+
+.section-title {
+  color: #13233a;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.section-text {
+  margin-top: 14rpx;
+  color: #4b5563;
+  font-size: 26rpx;
+  line-height: 1.7;
+}

@@ -1,1 +1,17 @@
-.gitignore 占位
+node_modules/
+dist/
+!admin/dist/
+!admin/dist/**
+.DS_Store
+*.log
+*.local
+.env
+.env.*
+!.env.example
+private/
+certs/
+keys/
+*.pem
+*.p12
+*.key
+tmp_pdf/

@@ -1,0 +1,238 @@
+.profile {
+  display: flex;
+  align-items: flex-start;
+  padding: 32rpx;
+  border-radius: 16rpx;
+  background: #fff;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  width: 104rpx;
+  height: 104rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0b3a75, #f6a21a);
+  color: #fff;
+  text-align: center;
+  line-height: 104rpx;
+  font-size: 44rpx;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.avatar image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.name {
+  color: #13233a;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.profile-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-sub {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 8rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+}
+
+.profile-sub-label {
+  color: #7b8794;
+}
+
+.profile-sub-value {
+  color: #0b3a75;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  margin-top: 8rpx;
+  color: #6b7280;
+  font-size: 25rpx;
+}
+
+.login-button {
+  height: 72rpx;
+  margin: 22rpx 0 0;
+  border-radius: 12rpx;
+  background: #0b3a75;
+  color: #fff;
+  line-height: 72rpx;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.phone-card {
+  margin-top: 18rpx;
+  padding: 16rpx 18rpx;
+  border-radius: 12rpx;
+  background: #f8fafc;
+}
+
+.phone-number {
+  color: #13233a;
+  font-size: 29rpx;
+  font-weight: 700;
+}
+
+.phone-hint {
+  margin-top: 4rpx;
+  color: #7b8794;
+  font-size: 22rpx;
+}
+
+.bind-phone-button {
+  height: 64rpx;
+  margin: 14rpx 0 0;
+  border-radius: 10rpx;
+  background: #0b3a75;
+  color: #fff;
+  line-height: 64rpx;
+  font-size: 25rpx;
+  font-weight: 700;
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12rpx;
+  margin-top: 14rpx;
+}
+
+.member-item {
+  min-width: 0;
+  padding: 12rpx 14rpx;
+  border-radius: 12rpx;
+  background: #f8fafc;
+}
+
+.member-label {
+  color: #6b7280;
+  font-size: 22rpx;
+}
+
+.member-value {
+  margin-top: 6rpx;
+  color: #0b3a75;
+  font-size: 25rpx;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section {
+  margin-top: 24rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+  background: #fff;
+}
+
+.section-title {
+  color: #13233a;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.form-tip {
+  margin-top: 12rpx;
+  color: #6b7280;
+  font-size: 25rpx;
+  line-height: 1.6;
+}
+
+.field {
+  margin-top: 22rpx;
+}
+
+.label {
+  margin-bottom: 10rpx;
+  color: #374151;
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.input {
+  height: 76rpx;
+  padding: 0 22rpx;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 12rpx;
+  background: #f9fafb;
+  font-size: 27rpx;
+}
+
+.save-button {
+  margin-top: 26rpx;
+}
+
+.my-course {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 96rpx;
+  border-top: 1rpx solid #edf0f3;
+}
+
+.my-course:first-of-type {
+  border-top: 0;
+}
+
+.my-course-title {
+  color: #13233a;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.my-course-meta {
+  margin-top: 8rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+}
+
+.my-course-action {
+  color: #0b3a75;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.service-section {
+  margin-bottom: 24rpx;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100rpx;
+  margin-top: 10rpx;
+  border-top: 1rpx solid #edf0f3;
+}
+
+.service-title {
+  color: #13233a;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.service-desc {
+  margin-top: 8rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+}
+
+.service-arrow {
+  color: #9ca3af;
+  font-size: 44rpx;
+  line-height: 1;
+}

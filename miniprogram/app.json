@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/course/detail",
+    "pages/study/study",
+    "pages/about/about",
+    "pages/admin/admin",
+    "pages/webview/webview",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarTitleText": "易启学",
+    "navigationBarBackgroundColor": "#0b3a75",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f7f9"
+  },
+  "tabBar": {
+    "color": "#6b7280",
+    "selectedColor": "#0b3a75",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "培训"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

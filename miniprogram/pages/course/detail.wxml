@@ -1,0 +1,50 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="empty">详情加载中...</view>
+  <view wx:elif="{{error}}" class="empty">{{error}}</view>
+
+  <view wx:else>
+    <view class="back-row" bindtap="goBack">返回课程</view>
+
+    <image wx:if="{{course.coverUrl && !course.coverLoadError}}" class="cover" src="{{course.coverUrl}}" mode="aspectFill" binderror="onCoverError" />
+    <view wx:else class="cover cover-placeholder">
+      <text>暂无封面</text>
+    </view>
+
+    <view class="section">
+      <view class="title">{{course.title}}</view>
+      <view class="subtitle">{{course.subtitle}}</view>
+      <view class="desc">{{course.description}}</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">课程目录</view>
+      <view wx:if="{{!hasAccess}}" class="access-notice">课程介绍和目录可查看，兑换培训授权码后即可观看视频和课件。</view>
+      <view wx:if="{{chapters.length === 0}}" class="muted chapter-empty">暂无章节</view>
+      <view
+        wx:for="{{chapters}}"
+        wx:key="_id"
+        class="chapter"
+        bindtap="goStudyChapter"
+        data-id="{{item._id}}"
+      >
+        <view class="chapter-index">{{index + 1}}</view>
+        <view class="chapter-main">
+          <view class="chapter-title">{{item.title}}</view>
+          <view class="chapter-meta">{{item.durationText}} · 视频 + 课件</view>
+        </view>
+        <view class="chapter-action">{{item.actionText || '学习'}}</view>
+      </view>
+    </view>
+
+    <button wx:if="{{!hasAccess}}" class="primary-button" bindtap="goStudy">兑换后学习</button>
+    <button
+      wx:elif="{{!isPublicAccess && !hasBoundPhone}}"
+      class="primary-button"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="loginWithPhone"
+      loading="{{phoneLoginLoading}}"
+      disabled="{{phoneLoginLoading}}"
+    >授权手机号后继续</button>
+    <button wx:else class="primary-button" bindtap="goStudy">开始学习</button>
+  </view>
+</view>

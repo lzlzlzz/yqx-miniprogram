@@ -1,0 +1,143 @@
+<view class="study-page">
+  <view wx:if="{{loading}}" class="empty">学习内容加载中...</view>
+  <view wx:elif="{{error}}" class="empty">{{error}}</view>
+
+  <view wx:else class="study-shell {{landscapeMode ? 'landscape-mode' : 'portrait-mode'}} {{materialsOpen ? 'materials-open' : 'materials-closed'}}">
+    <view class="video-column">
+      <view class="video-panel">
+        <view class="study-toolbar">
+          <view class="toolbar-title">{{chapter.title}}</view>
+          <button wx:if="{{landscapeMode}}" class="materials-toggle" bindtap="toggleMaterials">
+            {{materialsOpen ? '关闭课件' : '展开课件'}}
+          </button>
+          <button wx:if="{{landscapeMode}}" class="materials-toggle" bindtap="exitLandscape">退出横屏</button>
+        </view>
+
+        <view class="video-frame">
+          <video
+            id="lesson-video"
+            wx:if="{{video.playUrl}}"
+            class="video"
+            src="{{video.playUrl}}"
+            poster="{{video.poster}}"
+            muted="{{muted}}"
+            controls
+            show-progress
+            enable-progress-gesture
+            show-center-play-btn
+            bindplay="onVideoPlay"
+            bindpause="hideSettings"
+          />
+          <view wx:else class="video-placeholder">
+            <view class="play-mark">▶</view>
+            <view>视频播放待接入 VOD</view>
+          </view>
+          <view class="video-tools">
+            <button class="video-tool-button" bindtap="toggleSettings">设置</button>
+            <button
+              wx:if="{{!landscapeMode}}"
+              class="video-tool-button"
+              loading="{{requestingLandscape}}"
+              disabled="{{requestingLandscape}}"
+              bindtap="enterLandscape"
+            >
+              横屏
+            </button>
+          </view>
+
+          <view wx:if="{{settingsOpen}}" class="video-settings">
+            <view class="setting-row">
+              <view class="setting-label">亮度</view>
+              <slider
+                class="setting-slider"
+                value="{{brightnessPercent}}"
+                min="5"
+                max="100"
+                activeColor="#f6a21a"
+                backgroundColor="rgba(255,255,255,0.25)"
+                bindchanging="onBrightnessChange"
+                bindchange="onBrightnessChange"
+              />
+              <view class="setting-value">{{brightnessPercent}}%</view>
+            </view>
+            <view class="setting-row">
+              <view class="setting-label">声音</view>
+              <switch checked="{{!muted}}" bindchange="onSoundSwitchChange" color="#f6a21a" />
+              <view class="setting-value">{{muted ? '静音' : '开启'}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{materialsOpen}}" class="content-panel">
+      <view class="chapter-title">{{chapter.title}}</view>
+      <view class="chapter-subtitle">边看视频，边查看本节课件与资料</view>
+
+      <view wx:if="{{courseware.length === 0}}" class="empty-inline">暂无课件内容</view>
+
+      <block wx:for="{{courseware}}" wx:key="title">
+        <view wx:if="{{item.type === 'text'}}" class="note-block">
+          <view class="note-title">{{item.displayTitle || item.title}}</view>
+          <view class="note-text"><text user-select>{{item.content}}</text></view>
+        </view>
+
+        <view wx:elif="{{item.type === 'image'}}" class="note-block">
+          <view wx:if="{{item.displayTitle || item.title}}" class="note-title">{{item.displayTitle || item.title}}</view>
+          <view class="pinch-zoom-container">
+            <image class="pinch-image" src="{{item.url}}" mode="widthFix" />
+          </view>
+          <view wx:if="{{item.caption}}" class="note-caption">{{item.caption}}</view>
+        </view>
+
+        <view wx:elif="{{item.type === 'link'}}" class="link-block">
+          <view class="link-content">
+            <view class="note-title">{{item.displayTitle || item.title}}</view>
+            <view class="note-caption">{{item.displayDescription || item.description || item.url}}</view>
+            <view wx:if="{{item.expanded}}" class="expanded-material">
+              <view class="expanded-title">内容</view>
+              <scroll-view scroll-y class="expanded-scroll">
+                <text selectable>{{item.url}}</text>
+              </scroll-view>
+            </view>
+          </view>
+          <view class="link-actions">
+            <button class="link-action" bindtap="openLink" data-index="{{index}}">
+              {{item.expanded ? '收起' : '打开'}}
+            </button>
+            <button class="link-action" bindtap="downloadLink" data-url="{{item.url}}" data-file-id="{{item.urlCloudFileId}}">
+              下载
+            </button>
+          </view>
+        </view>
+      </block>
+
+      <view wx:if="{{downloadLinks.length > 0}}" class="download-section">
+        <view
+          wx:for="{{downloadLinks}}"
+          wx:key="title"
+          class="link-block"
+        >
+          <view class="link-content">
+            <view class="note-title">{{item.displayTitle || item.title}}</view>
+            <view class="note-caption">{{item.displayDescription || item.previewUrl || item.url}}</view>
+            <view wx:if="{{item.expanded}}" class="expanded-material">
+              <view class="expanded-title">内容</view>
+              <scroll-view scroll-y class="expanded-scroll">
+                <text selectable>{{item.url}}</text>
+              </scroll-view>
+            </view>
+          </view>
+          <view class="link-actions">
+            <button class="link-action" bindtap="openDownload" data-index="{{index}}">
+              {{item.openLabel || (item.expanded ? '收起' : '打开')}}
+            </button>
+            <button class="link-action" bindtap="downloadLink" data-url="{{item.previewUrl || item.url}}" data-file-id="{{item.fileId}}">
+              下载
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

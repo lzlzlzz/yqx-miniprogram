@@ -1,0 +1,91 @@
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+  padding: 36rpx 4rpx 28rpx;
+}
+
+.hero-logo {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 28rpx;
+  background: #fff;
+  box-shadow: 0 10rpx 28rpx rgba(11, 58, 117, 0.14);
+}
+
+.hero-title {
+  color: #0b3a75;
+  font-size: 48rpx;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  margin-top: 12rpx;
+  color: #6b7280;
+  font-size: 28rpx;
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.course-card {
+  display: flex;
+  min-height: 188rpx;
+  overflow: hidden;
+  border-radius: 16rpx;
+  background: #fff;
+  box-shadow: 0 10rpx 30rpx rgba(11, 58, 117, 0.08);
+}
+
+.course-cover {
+  width: 220rpx;
+  min-width: 220rpx;
+  height: 188rpx;
+  background: #d1d5db;
+}
+
+.course-cover-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b3a75;
+  font-size: 30rpx;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f7fbff 0%, #e9eef6 46%, #ffe3a8 100%);
+}
+
+.course-body {
+  flex: 1;
+  min-width: 0;
+  padding: 22rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.course-title {
+  font-size: 31rpx;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.course-subtitle {
+  margin-top: 10rpx;
+  color: #6b7280;
+  font-size: 25rpx;
+}
+
+.course-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 24rpx;
+}
+
+.course-action {
+  color: #0b3a75;
+  font-size: 26rpx;
+  font-weight: 700;
+}

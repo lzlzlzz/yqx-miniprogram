@@ -1,0 +1,59 @@
+<view class="page admin-page">
+  <view class="header">
+    <view>
+      <view class="title">培训授权码管理</view>
+      <view class="subtitle">为内部培训成员生成课程访问授权。</view>
+    </view>
+    <button class="light-button" loading="{{loadingCourses}}" disabled="{{loadingCourses}}" bindtap="loadCourses">刷新课程</button>
+  </view>
+
+  <view class="section">
+    <view class="section-title">后台 Token</view>
+    <view class="tip">只保存在你当前开发者工具里，用来证明这是管理员操作。</view>
+    <input class="input" password value="{{adminToken}}" bindinput="onTokenInput" placeholder="请输入后台 Token" />
+  </view>
+
+  <view class="section">
+    <view class="section-title">生成培训授权码</view>
+
+    <view class="field">
+      <view class="label">授权课程</view>
+      <picker range="{{courses}}" range-key="title" value="{{courseIndex}}" bindchange="onCourseChange">
+        <view class="picker">{{courses[courseIndex].title}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="label">培训权限</view>
+      <picker range="{{levels}}" range-key="label" value="{{levelIndex}}" bindchange="onLevelChange">
+        <view class="picker">{{levels[levelIndex].label}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="label">使用次数</view>
+      <input class="input" type="number" value="{{maxUses}}" bindinput="onMaxUsesInput" />
+      <view class="mini-tip">通常填 1</view>
+    </view>
+
+    <view class="field">
+      <view class="label">自定义码</view>
+      <input class="input" value="{{customCode}}" bindinput="onCustomCodeInput" placeholder="可留空，系统自动生成" />
+    </view>
+
+    <view class="field">
+      <view class="label">备注</view>
+      <input class="input" value="{{note}}" bindinput="onNoteInput" placeholder="例如：内部培训授权" />
+    </view>
+
+    <button class="primary-button submit" loading="{{saving}}" disabled="{{saving}}" bindtap="createRedeemCode">生成授权码</button>
+  </view>
+
+  <view wx:if="{{latestCode}}" class="section result">
+    <view>
+      <view class="section-title">最新授权码</view>
+      <view class="code">{{latestCode}}</view>
+    </view>
+    <button class="light-button" bindtap="copyLatestCode">复制</button>
+  </view>
+</view>

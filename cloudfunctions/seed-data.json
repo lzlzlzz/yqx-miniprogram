@@ -1,0 +1,78 @@
+{
+  "courses": [
+    {
+      "_comment": "收费测试课",
+      "_id": "course_paid_001",
+      "title": "AI 短视频实战训练营",
+      "subtitle": "从选题到发布的完整流程",
+      "coverUrl": "",
+      "description": "收费课程，支持微信支付自动开通，也支持后台人工授权。",
+      "price": 9900,
+      "originalPrice": 19900,
+      "accessType": "paid",
+      "status": "published",
+      "sort": 1
+    },
+    {
+      "_comment": "免费传播课",
+      "_id": "course_free_001",
+      "title": "免费公开资料课",
+      "subtitle": "方便客户转发和了解服务",
+      "coverUrl": "",
+      "description": "免费公开内容，无需支付即可学习。",
+      "price": 0,
+      "originalPrice": 0,
+      "accessType": "free",
+      "status": "published",
+      "sort": 2
+    }
+  ],
+  "chapters": [
+    {
+      "_comment": "第一课测试章节，绑定收费测试课",
+      "_id": "chapter_001",
+      "courseId": "course_paid_001",
+      "title": "第一课：课程介绍",
+      "summary": "课程交付流程和学习方式",
+      "sort": 1,
+      "vodFileId": "YOUR_VOD_FILE_ID",
+      "originalPlayUrl": "https://example.com/vod/demo-placeholder.mp4",
+      "poster": "",
+      "duration": 867,
+      "isTrial": false,
+      "status": "published",
+      "courseware": [
+        {
+          "type": "text",
+          "title": "本节重点",
+          "content": "理解课程交付主流程：登录、浏览课程、购买、进入章节学习。"
+        },
+        {
+          "type": "link",
+          "title": "课件命令行",
+          "url": "https://example.com/course-resource",
+          "description": "本节课配套命令、操作步骤和补充材料。"
+        }
+      ],
+      "downloadLinks": [
+        {
+          "title": "课件资料",
+          "url": "https://example.com/courseware.pdf"
+        }
+      ]
+    }
+  ],
+  "course_access": [
+    {
+      "_comment": "人工授权示例，手机号替换为真实学员手机号",
+      "_id": "access_demo_001",
+      "courseId": "course_paid_001",
+      "identifierType": "phone",
+      "identifierValue": "13800138000",
+      "source": "manual_wechat_pay",
+      "status": "active",
+      "paidAmount": 9900,
+      "note": "微信转账已确认"
+    }
+  ]
+}

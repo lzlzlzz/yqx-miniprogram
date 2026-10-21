@@ -1,0 +1,20 @@
+{
+  "name": "yqx-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:local": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173"
+  },
+  "dependencies": {
+    "@cloudbase/js-sdk": "^3.3.10",
+    "@vitejs/plugin-vue": "latest",
+    "element-plus": "latest",
+    "pdfjs-dist": "^5.7.284",
+    "vite": "latest",
+    "vue": "latest"
+  }
+}
